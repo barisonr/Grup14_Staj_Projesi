@@ -18,6 +18,7 @@ public class Hooks {
 
         WebDriverManager.chromedriver().setup();
         DriverManager.driver = new ChromeDriver();
+        DriverManager.getDriver().manage().window().maximize();
     }
 
     @After
