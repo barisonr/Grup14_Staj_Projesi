@@ -2,8 +2,10 @@ package Steps;
 
 import Pages.LoginPage;
 import Utils.DriverManager;
+import Utils.Tools;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,6 +19,8 @@ public class Login_Steps {
     public void userSuccessfullyLoggedInAsAdmin() {
         driver.get("https://demo.mersys.io/");
 
+        Tools.waitUntilLoading();
+
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.username));
         loginPage.username.sendKeys("richfield.edu");
 
@@ -24,6 +28,7 @@ public class Login_Steps {
         loginPage.password.sendKeys("Richfield2020!");
 
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.loginButton));
-        loginPage.loginButton.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(loginPage.loginButton).click().perform();
     }
 }
