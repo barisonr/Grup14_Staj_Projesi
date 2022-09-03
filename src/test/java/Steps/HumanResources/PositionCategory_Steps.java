@@ -18,94 +18,85 @@ import java.time.Duration;
 public class PositionCategory_Steps {
 
     SideNav sideNav = new SideNav();
-    PositionCategories_Page positionCategoriesPage = new PositionCategories_Page();
+    PositionCategories_Page page = new PositionCategories_Page();
     WebDriver driver = DriverManager.getDriver();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     static String randomName;
 
     @And("navigated to Position Category page")
     public void navigatedToPositionCategoryPage() {
-        Tools.navigateToMenu(sideNav.HumanResources);
-        Tools.navigateToMenu(sideNav.HumanResources_Setup);
-        Tools.navigateToMenu(sideNav.HumanResources_Setup_PositionCategories);
+        wait.until(ExpectedConditions.elementToBeClickable(sideNav.HumanResources)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(sideNav.HumanResources_Setup)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(sideNav.HumanResources_Setup_PositionCategories)).click();
 
         Tools.waitUntilLoading();
     }
 
     @When("a new position category is created")
     public void aNewPositionCategoryIsCreated() {
-        wait.until(ExpectedConditions.elementToBeClickable
-                        (positionCategoriesPage.addButton))
+        wait.until(ExpectedConditions.elementToBeClickable(page.addButton))
                 .click();
 
         randomName = RandomStringUtils.randomAlphanumeric(8);
-        wait.until(ExpectedConditions.elementToBeClickable
-                        (positionCategoriesPage.nameInput))
+        wait.until(ExpectedConditions.elementToBeClickable(page.nameInput))
                 .sendKeys(randomName);
 
-        positionCategoriesPage.saveButton.click();
+        page.saveButton.click();
 
         Tools.waitUntilLoading();
     }
 
     @Then("the position category should appear in the list")
     public void thePositionCategoryShouldAppearInTheList() {
-        positionCategoriesPage.searchBarInput.sendKeys(randomName);
-        positionCategoriesPage.searchButton.click();
+        page.searchBarInput.sendKeys(randomName);
+        page.searchButton.click();
 
         Tools.waitUntilLoading();
 
-        Assert.assertEquals(positionCategoriesPage.searchResultNoMatch.size(), 0);
+        Assert.assertEquals(page.searchResultNoMatch.size(), 0);
     }
 
     @When("an existing position category edited")
     public void anExistingPositionCategoryEdited() {
-        wait.until(ExpectedConditions.elementToBeClickable
-                        (positionCategoriesPage.searchBarInput))
+        wait.until(ExpectedConditions.elementToBeClickable(page.searchBarInput))
                 .sendKeys(randomName);
 
-        positionCategoriesPage.searchButton.click();
+        page.searchButton.click();
 
         Tools.waitUntilLoading();
-
-        positionCategoriesPage.editButton.click();
+        page.editButton.click();
 
         randomName = RandomStringUtils.randomAlphanumeric(8);
-
-        wait.until(ExpectedConditions.elementToBeClickable
-                        (positionCategoriesPage.nameInput))
+        wait.until(ExpectedConditions.elementToBeClickable(page.nameInput))
                 .clear();
 
-        positionCategoriesPage.nameInput.sendKeys(randomName);
+        page.nameInput.sendKeys(randomName);
 
-        positionCategoriesPage.saveButton.click();
-
+        page.saveButton.click();
         Tools.waitUntilLoading();
 
-        positionCategoriesPage.searchBarInput.clear();
-        positionCategoriesPage.searchBarInput.sendKeys(randomName);
-        positionCategoriesPage.searchButton.click();
+        page.searchBarInput.clear();
+        page.searchBarInput.sendKeys(randomName);
+        page.searchButton.click();
 
         Tools.waitUntilLoading();
     }
 
     @Then("the position category should have changed")
     public void thePositionCategoryShouldHaveChanged() {
-        Assert.assertEquals(positionCategoriesPage.searchResultNoMatch.size(), 0);
+        Assert.assertEquals(page.searchResultNoMatch.size(), 0);
     }
 
     @When("an existing position category deleted")
     public void anExistingPositionCategoryDeleted() {
-        wait.until(ExpectedConditions.elementToBeClickable
-                        (positionCategoriesPage.searchBarInput))
+        wait.until(ExpectedConditions.elementToBeClickable(page.searchBarInput))
                 .sendKeys(randomName);
 
-        positionCategoriesPage.searchButton.click();
+        page.searchButton.click();
         Tools.waitUntilLoading();
 
-        positionCategoriesPage.deleteButton.click();
-        wait.until(ExpectedConditions.elementToBeClickable
-                        (positionCategoriesPage.deleteButtonConfirm))
+        page.deleteButton.click();
+        wait.until(ExpectedConditions.elementToBeClickable(page.deleteButtonConfirm))
                 .click();
 
         Tools.waitUntilLoading();
@@ -113,9 +104,10 @@ public class PositionCategory_Steps {
 
     @Then("the position category should be removed from the list")
     public void thePositionCategoryShouldBeRemovedFromTheList() {
-        positionCategoriesPage.searchButton.click();
+        page.searchButton.click();
         Tools.waitUntilLoading();
 
-        Assert.assertEquals(positionCategoriesPage.searchResultNoMatch.size(), 1);
+        wait.until(ExpectedConditions.visibilityOfAllElements(page.searchResultNoMatch));
+        Assert.assertEquals(page.searchResultNoMatch.size(), 1);
     }
 }
