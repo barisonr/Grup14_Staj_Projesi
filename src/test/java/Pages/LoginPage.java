@@ -10,12 +10,12 @@ public class LoginPage {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
-    @FindBy(css = " [formcontrolname='username']")
+    @FindBy(css = "[formcontrolname='username']")
     public WebElement username;
 
-    @FindBy(css = " [formcontrolname='password']")
+    @FindBy(css = "[formcontrolname='password']")
     public WebElement password;
 
-    @FindBy(css = " [aria-label='LOGIN']")
+    @FindBy(css = "[aria-label='LOGIN'] > span")
     public WebElement loginButton;
 }
