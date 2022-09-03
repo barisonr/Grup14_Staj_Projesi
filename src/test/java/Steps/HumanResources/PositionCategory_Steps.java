@@ -29,21 +29,17 @@ public class PositionCategory_Steps {
         Tools.navigateToMenu(sideNav.HumanResources);
         Tools.navigateToMenu(sideNav.HumanResources_Setup);
         Tools.navigateToMenu(sideNav.HumanResources_Setup_PositionCategories);
-
         Tools.waitUntilLoading();
     }
 
     @When("a new position category is created")
     public void aNewPositionCategoryIsCreated() {
-        wait.until(ExpectedConditions.elementToBeClickable(page.addButton))
-                .click();
+        wait.until(ExpectedConditions.elementToBeClickable(page.addButton)).click();
+        Tools.waitPopUp();
 
         randomName = RandomStringUtils.randomAlphanumeric(8);
-        wait.until(ExpectedConditions.elementToBeClickable(page.nameInput))
-                .sendKeys(randomName);
-
+        page.nameInput.sendKeys(randomName);
         page.saveButton.click();
-
         Tools.waitUntilLoading();
     }
 
@@ -51,7 +47,6 @@ public class PositionCategory_Steps {
     public void thePositionCategoryShouldAppearInTheList() {
         page.searchBarInput.sendKeys(randomName);
         page.searchButton.click();
-
         Tools.waitUntilLoading();
 
         Assert.assertEquals(page.searchResultNoMatch.size(), 0);
@@ -59,18 +54,15 @@ public class PositionCategory_Steps {
 
     @When("an existing position category edited")
     public void anExistingPositionCategoryEdited() {
-        wait.until(ExpectedConditions.elementToBeClickable(page.searchBarInput))
-                .sendKeys(randomName);
-
+        wait.until(ExpectedConditions.elementToBeClickable(page.searchBarInput)).sendKeys(randomName);
         page.searchButton.click();
-
         Tools.waitUntilLoading();
+
         page.editButton.click();
+        Tools.waitPopUp();
 
         randomName = RandomStringUtils.randomAlphanumeric(8);
-        wait.until(ExpectedConditions.elementToBeClickable(page.nameInput))
-                .clear();
-
+        page.nameInput.clear();
         page.nameInput.sendKeys(randomName);
 
         page.saveButton.click();
@@ -79,7 +71,6 @@ public class PositionCategory_Steps {
         page.searchBarInput.clear();
         page.searchBarInput.sendKeys(randomName);
         page.searchButton.click();
-
         Tools.waitUntilLoading();
     }
 
@@ -90,16 +81,13 @@ public class PositionCategory_Steps {
 
     @When("an existing position category deleted")
     public void anExistingPositionCategoryDeleted() {
-        wait.until(ExpectedConditions.elementToBeClickable(page.searchBarInput))
-                .sendKeys(randomName);
-
+        wait.until(ExpectedConditions.elementToBeClickable(page.searchBarInput)).sendKeys(randomName);
         page.searchButton.click();
         Tools.waitUntilLoading();
 
         page.deleteButton.click();
-        wait.until(ExpectedConditions.elementToBeClickable(page.deleteButtonConfirm))
-                .click();
-
+        Tools.waitPopUp();
+        page.deleteButtonConfirm.click();
         Tools.waitUntilLoading();
     }
 

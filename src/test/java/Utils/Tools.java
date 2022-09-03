@@ -10,13 +10,12 @@ import java.util.List;
 
 public class Tools {
     public static void waitUntilLoading() {
-        WebDriverWait wait = new WebDriverWait(DriverManager.driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(DriverManager.driver, Duration.ofSeconds(120));
         wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("fuse-progress-bar > *"), 0));
     }
 
     public static void navigateToMenu(WebElement menu) {
         WebDriverWait wait = new WebDriverWait(DriverManager.driver, Duration.ofSeconds(120));
-
         wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(menu)));
         menu.click();
 
@@ -27,5 +26,9 @@ public class Tools {
                     (ExpectedConditions.not
                             (ExpectedConditions.attributeContains(animateDiv.get(0), "class", "ng-animating"))));
         }
+    }
+    public static void waitPopUp() {
+        WebDriverWait wait = new WebDriverWait(DriverManager.driver, Duration.ofSeconds(120));
+        wait.until(ExpectedConditions.attributeContains(By.className("cdk-overlay-pane"), "style", "static"));
     }
 }
