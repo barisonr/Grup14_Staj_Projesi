@@ -20,14 +20,15 @@ public class PositionCategory_Steps {
     SideNav sideNav = new SideNav();
     PositionCategories_Page page = new PositionCategories_Page();
     WebDriver driver = DriverManager.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
     static String randomName;
 
     @And("navigated to Position Category page")
     public void navigatedToPositionCategoryPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(sideNav.HumanResources)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(sideNav.HumanResources_Setup)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(sideNav.HumanResources_Setup_PositionCategories)).click();
+
+        Tools.navigateToMenu(sideNav.HumanResources);
+        Tools.navigateToMenu(sideNav.HumanResources_Setup);
+        Tools.navigateToMenu(sideNav.HumanResources_Setup_PositionCategories);
 
         Tools.waitUntilLoading();
     }
