@@ -26,9 +26,10 @@ public class PositionCategory_Steps {
     @And("navigated to Position Category page")
     public void navigatedToPositionCategoryPage() {
 
-        Tools.navigateToMenu(sideNav.HumanResources);
-        Tools.navigateToMenu(sideNav.HumanResources_Setup);
-        Tools.navigateToMenu(sideNav.HumanResources_Setup_PositionCategories);
+        Tools.navigateToMenu(
+                sideNav.HumanResources,
+                sideNav.HumanResources_Setup,
+                sideNav.HumanResources_Setup_PositionCategories);
         Tools.waitUntilLoading();
     }
 
