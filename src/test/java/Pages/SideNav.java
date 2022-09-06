@@ -31,7 +31,7 @@ public class SideNav {
     @FindBy(xpath = "//span[text()='Bank Accounts']/../..")
     public WebElement Setup_Parameters_BankAccounts;
 
-    @FindBy(xpath = "//span[text()='Document Types']/../..")
+    @FindBy(xpath = "//span[text()='Fields']/../..")
     public WebElement Setup_Parameters_Fields;
 
     @FindBy(xpath = "//span[text()='School Setup']/../..")
