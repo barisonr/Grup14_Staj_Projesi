@@ -42,7 +42,7 @@ public class HumanAttestationsSteps {
 
         Tools.waitPopUp();
 
-        hp.nameInput.sendKeys("ahmet135");
+        hp.nameInput.sendKeys("Ahmet135");
         hp.saveButton.click();
 
         Tools.waitUntilLoading();
