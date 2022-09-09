@@ -6,12 +6,12 @@ Feature: G14-2 Attestations Functionality
 
   Scenario: Add Attestations,
    Then User should be able to add Attestations
-    And Success message should be displayed
+    And Attestation success message should be displayed
 
   Scenario: Edit Attestations
     Then User should be able to edit Attestations
-    And Success message should be displayed
+    And Attestation success message should be displayed
 
   Scenario: Delete Attestations
     Then User should be able to delete Attestations
-    And Success message should be displayed
+    And Attestation success message should be displayed

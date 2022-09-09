@@ -80,7 +80,7 @@ public class HumanAttestationsSteps {
     }
 
 
-    @And("Success message should be displayed")
+    @And("Attestation success message should be displayed")
     public void successMessageShouldBeDisplayed() {
         wait.until(ExpectedConditions.visibilityOfAllElements(hp.successMessage));
         Assert.assertTrue(hp.successMessage.getText().contains("success"));
