@@ -9,9 +9,6 @@ public class HRPositionsPage {
 
    public HRPositionsPage(){ PageFactory.initElements(DriverManager.getDriver(),this);}
 
-    @FindBy(xpath = "//button[text()='Accept all cookies']")
-    public WebElement cookies;
-
     @FindBy(xpath="//ms-add-button[contains(@tooltip,'TITLE.ADD')]//button")
     public WebElement addButton;
 

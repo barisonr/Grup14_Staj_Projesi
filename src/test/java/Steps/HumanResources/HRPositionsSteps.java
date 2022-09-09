@@ -32,7 +32,7 @@ public class HRPositionsSteps {
     }
     @When("User Create a new position")
     public void userCreateANewPosition() {
-        wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.cookies)).click();
+
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.addButton)).click();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.nameInput)).sendKeys("grup14");
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.shortNameInput)).sendKeys("group14");
@@ -41,17 +41,17 @@ public class HRPositionsSteps {
     @Then("Success message should be displayed")
     public void successMessageShouldBeDisplayed() {
 
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//dynamic-view[@class='ng-star-inserted']"),0));
+        Tools.waitUntilLoading();
         wait.until(ExpectedConditions.visibilityOf(hrPositionsPage.successMessage));
         Assert.assertTrue(hrPositionsPage.successMessage.getText().contains("success"));
     }
     @When("User Edit the old position")
     public void userEditTheOldPosition() {
-        wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.cookies)).click();
+
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.searchNameInput)).click();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.searchNameInput)).sendKeys("grup14");
         wait.until(ExpectedConditions.elementToBeClickable( hrPositionsPage.searchButton)).click();
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//td[@role='cell']"),5));
+        Tools.waitUntilLoading();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.editButton)).click();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.nameInput)).clear();
         hrPositionsPage.nameInput.sendKeys("Grup14");
@@ -61,11 +61,11 @@ public class HRPositionsSteps {
     }
     @When("User delete the position")
     public void userDeleteThePosition() {
-        wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.cookies)).click();
+
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.searchNameInput)).click();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.searchNameInput)).sendKeys("Grup14");
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.searchButton)).click();
-        wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath("//td[@role='cell']"),5));
+        Tools.waitUntilLoading();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.deleteButton)).click();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.hrPageDeleteButton)).click();
     }
