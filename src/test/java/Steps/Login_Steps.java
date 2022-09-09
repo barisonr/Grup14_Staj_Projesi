@@ -21,6 +21,7 @@ public class Login_Steps {
 
         Tools.waitUntilLoading();
 
+        wait.until(ExpectedConditions.elementToBeClickable(loginPage.acceptCookies)).click();
 
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.username));
         loginPage.username.sendKeys("richfield.edu");
