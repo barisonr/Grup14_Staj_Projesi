@@ -1,4 +1,4 @@
-package Pages;
+package Pages.HumanResources;
 
 import Utils.DriverManager;
 import org.openqa.selenium.WebElement;
