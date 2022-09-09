@@ -53,6 +53,7 @@ public class HRPositionsSteps {
         wait.until(ExpectedConditions.elementToBeClickable( hrPositionsPage.searchButton)).click();
         Tools.waitUntilLoading();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.editButton)).click();
+        Tools.waitPopUp();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.nameInput)).clear();
         hrPositionsPage.nameInput.sendKeys("Grup14");
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.shortNameInput)).clear();
@@ -67,6 +68,7 @@ public class HRPositionsSteps {
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.searchButton)).click();
         Tools.waitUntilLoading();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.deleteButton)).click();
+        Tools.waitPopUp();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.hrPageDeleteButton)).click();
     }
 
