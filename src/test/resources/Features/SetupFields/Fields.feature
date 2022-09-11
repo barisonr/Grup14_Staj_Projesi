@@ -14,7 +14,7 @@ Feature:Fields
 
 
   Scenario:User should be able to delete Fields.
-    When User should be able to Fields delete
+    When an existing field deleted
     Then the fields should be removed from the list
 
 
