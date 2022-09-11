@@ -83,8 +83,8 @@ public class Fields_Steps {
         Assert.assertEquals(fieldsPage.searchResultNoMatch.size(), 0);
     }
 
-    @When("User should be able to Fields delete")
-    public void userShouldBeAbleToFieldsDelete() {
+    @When("an existing field deleted")
+    public void anExistingFieldDeleted() {
         wait.until(ExpectedConditions.elementToBeClickable(fieldsPage.searchBarInput)).sendKeys(randomName);
         fieldsPage.searchButton.click();
         Tools.waitUntilLoading();
