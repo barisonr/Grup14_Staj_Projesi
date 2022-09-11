@@ -5,8 +5,6 @@ import Utils.DriverManager;
 import Utils.Tools;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,7 +28,6 @@ public class Login_Steps {
         loginPage.username.sendKeys("richfield.edu");
         loginPage.password.sendKeys("Richfield2020!" + Keys.ENTER);
     }
-
 
 
 }
