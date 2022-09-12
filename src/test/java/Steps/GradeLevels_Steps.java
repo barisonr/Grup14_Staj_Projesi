@@ -38,7 +38,7 @@ public class GradeLevels_Steps {
 
     @When("a new grade level is created")
     public void aNewGradeLevelIsCreated() {
-        wait.until(ExpectedConditions.visibilityOfAllElements(page.allGradeLevels));
+        waitUntilListLoading();
         page.addButton.click();
         Tools.waitPopUp();
 
@@ -62,7 +62,7 @@ public class GradeLevels_Steps {
 
     @When("an existing grade level edited")
     public void anExistingGradeLevelEdited() {
-        wait.until(ExpectedConditions.visibilityOfAllElements(page.allGradeLevels));
+        waitUntilListLoading();
         getEditButton().click();
         Tools.waitPopUp();
 
@@ -91,7 +91,7 @@ public class GradeLevels_Steps {
 
     @When("an existing grade level deleted")
     public void anExistingGradeLevelDeleted() {
-        wait.until(ExpectedConditions.visibilityOfAllElements(page.allGradeLevels));
+        waitUntilListLoading();
         gradeLevelElement = getElement(randomName, randomShortName, randomOrder);
         getDeleteButton().click();
         Tools.waitPopUp();
@@ -120,18 +120,22 @@ public class GradeLevels_Steps {
         return null;
     }
 
-    public WebElement getEditButton() {
+    private WebElement getEditButton() {
         return getElement(randomName, randomShortName, randomOrder)
                 .findElement(By.cssSelector("ms-edit-button"));
     }
 
-    public WebElement getDeleteButton() {
+    private WebElement getDeleteButton() {
         return getElement(randomName, randomShortName, randomOrder)
                 .findElement(By.cssSelector("ms-delete-button"));
     }
 
-    public void waitUntilElementListed(String name) {
+    private void waitUntilElementListed(String name) {
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(
                 By.xpath("//tbody//td[2][text()='" + name + "']"), 0));
+    }
+
+    private void waitUntilListLoading() {
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("tbody[role='rowgroup'] > tr")));
     }
 }
