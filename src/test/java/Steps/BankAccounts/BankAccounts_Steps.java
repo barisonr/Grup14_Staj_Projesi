@@ -43,7 +43,7 @@ public class BankAccounts_Steps {
 
         randomName = RandomStringUtils.randomAlphanumeric(10);
         bankAccountsPage.nameInput.sendKeys(randomName);
-        bankAccountsPage.iban.sendKeys("TR35527628872982082900");
+        bankAccountsPage.iban.sendKeys("TR36527628872982082900");
         bankAccountsPage.currency.click();
         wait.until(ExpectedConditions.elementToBeClickable(bankAccountsPage.OP)).click();
         bankAccountsPage.integrationcod.sendKeys("1234");
@@ -77,7 +77,7 @@ public class BankAccounts_Steps {
         bankAccountsPage.nameInput.sendKeys(randomName);
 
         bankAccountsPage.iban.clear();
-        bankAccountsPage.iban.sendKeys("TR34527628872982082922");
+        bankAccountsPage.iban.sendKeys("TR37527628872982082922");
 
         bankAccountsPage.integrationcod.clear();
         bankAccountsPage.integrationcod.sendKeys("4321");
