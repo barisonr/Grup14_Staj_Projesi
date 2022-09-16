@@ -16,6 +16,6 @@ public class LoginPage {
     @FindBy(css = "[formcontrolname='password']")
     public WebElement password;
 
-    @FindBy(css = "[aria-label='LOGIN'] > span")
-    public WebElement loginButton;
+    @FindBy(css = "button.consent-give")
+    public WebElement acceptCookies;
 }

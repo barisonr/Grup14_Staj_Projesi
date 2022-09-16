@@ -10,60 +10,60 @@ public class SideNav {
         PageFactory.initElements(DriverManager.getDriver(), this);
     }
 
-    @FindBy(xpath = "//fuse-nav-vertical-collapsable")
+    @FindBy(xpath = "//span[text()='Setup']/../..")
     public WebElement Setup;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[2]")
+    @FindBy(xpath = "//span[text()='Parameters']/../..")
     public WebElement Setup_Parameters;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[2]//fuse-nav-vertical-item[5]")
+    @FindBy(xpath = "//span[text()='Nationalities']/../..")
     public WebElement Setup_Parameters_Nationalities;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[2]//fuse-nav-vertical-item[7]")
+    @FindBy(xpath = "//span[text()='Discounts']/../..")
     public WebElement Setup_Parameters_Discounts;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[2]//fuse-nav-vertical-item[8]")
+    @FindBy(xpath = "//span[text()='Grade Levels']/../..")
     public WebElement Setup_Parameters_GradeLevels;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[2]//fuse-nav-vertical-item[9]")
+    @FindBy(xpath = "//span[text()='Document Types']/../..")
     public WebElement Setup_Parameters_DocumentTypes;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[2]//fuse-nav-vertical-item[10]")
+    @FindBy(xpath = "//span[text()='Bank Accounts']/../..")
     public WebElement Setup_Parameters_BankAccounts;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[2]//fuse-nav-vertical-item[11]")
+    @FindBy(xpath = "//span[text()='Fields']/../..")
     public WebElement Setup_Parameters_Fields;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[3]")
+    @FindBy(xpath = "//span[text()='School Setup']/../..")
     public WebElement Setup_SchoolSetup;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[3]//fuse-nav-vertical-item[4]")
+    @FindBy(xpath = "//span[text()='Locations']/../..")
     public WebElement Setup_SchoolSetup_Locations;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[3]//fuse-nav-vertical-item[5]")
+    @FindBy(xpath = "//span[text()='Departments']/../..")
     public WebElement Setup_SchoolSetup_Departments;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[11]")
+    @FindBy(xpath = "//span[text()='Human Resources']/../..")
     public WebElement HumanResources;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[12]")
+    @FindBy(xpath = "(//span[text()='Setup'])[3]/../..")
     public WebElement HumanResources_Setup;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[12]//fuse-nav-vertical-item")
+    @FindBy(xpath = "//span[text()='Positions']/../..")
     public WebElement HumanResources_Setup_Positions;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[12]//fuse-nav-vertical-item[4]")
+    @FindBy(xpath = "//span[text()='Position Categories']/../..")
     public WebElement HumanResources_Setup_PositionCategories;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[12]//fuse-nav-vertical-item[3]")
+    @FindBy(xpath = "//span[text()='Attestations']/../..")
     public WebElement HumanResources_Setup_Attestations;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[16]")
+    @FindBy(xpath = "//span[text()='Education']/../..")
     public WebElement Education;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[17]")
+    @FindBy(xpath = "(//span[text()='Setup'])[4]/../..")
     public WebElement Education_Setup;
 
-    @FindBy(xpath = "(//fuse-nav-vertical-collapsable)[17]//fuse-nav-vertical-item")
+    @FindBy(xpath = "//span[text()='Subject Categories']/../..")
     public WebElement Education_Setup_SubjectCategories;
 }
