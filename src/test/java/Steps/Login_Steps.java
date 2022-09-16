@@ -5,7 +5,6 @@ import Utils.DriverManager;
 import Utils.Tools;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -22,12 +21,9 @@ public class Login_Steps {
 
         Tools.waitUntilLoading();
 
-        wait.until(ExpectedConditions.elementToBeClickable(loginPage.acceptCookies)).click();
-
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.username));
         loginPage.username.sendKeys("richfield.edu");
-        loginPage.password.sendKeys("Richfield2020!" + Keys.ENTER);
+        loginPage.password.sendKeys("Richfield2020!");
+
+        loginPage.loginButton.click();
     }
-
-
-}
