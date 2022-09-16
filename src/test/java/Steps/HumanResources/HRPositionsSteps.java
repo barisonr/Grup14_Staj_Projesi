@@ -37,7 +37,7 @@ public class HRPositionsSteps {
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.shortNameInput)).sendKeys("group14");
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.saveButton)).click();
     }
-    @Then("Success message should be displayed")
+    @Then("Position success message should be displayed")
     public void successMessageShouldBeDisplayed() {
 
         Tools.waitUntilLoading();
@@ -70,6 +70,4 @@ public class HRPositionsSteps {
         Tools.waitPopUp();
         wait.until(ExpectedConditions.elementToBeClickable(hrPositionsPage.hrPageDeleteButton)).click();
     }
-
-
 }

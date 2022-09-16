@@ -3,6 +3,7 @@ package Steps;
 import Pages.LoginPage;
 import Utils.DriverManager;
 import Utils.Tools;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,4 +27,3 @@ public class Login_Steps {
 
         loginPage.loginButton.click();
     }
-}
