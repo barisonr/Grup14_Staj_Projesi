@@ -1,2 +1,3 @@
-Mersys_Project
-Mersys_Project
+Grup14_Staj_Projesi
+Grup14_Staj_Projesi
+
