@@ -1,2 +1,2 @@
-# Grup14_Staj_Projesi
-Grup 14 Staj Projesi
+Mersys_Project
+Mersys_Project
