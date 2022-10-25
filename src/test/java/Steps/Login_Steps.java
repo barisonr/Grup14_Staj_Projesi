@@ -26,7 +26,7 @@ public class Login_Steps {
 
         wait.until(ExpectedConditions.elementToBeClickable(loginPage.username));
         loginPage.username.sendKeys("richfield.edu");
-        loginPage.password.sendKeys("Richfield2020!" + Keys.ENTER);
+        loginPage.password.sendKeys("" + Keys.ENTER);
     }
 
 

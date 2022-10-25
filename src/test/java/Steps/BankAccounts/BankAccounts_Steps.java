@@ -9,7 +9,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -43,14 +45,13 @@ public class BankAccounts_Steps {
 
         randomName = RandomStringUtils.randomAlphanumeric(10);
         bankAccountsPage.nameInput.sendKeys(randomName);
-        bankAccountsPage.iban.sendKeys("TR36527628872982082900");
+        bankAccountsPage.iban.sendKeys("KZ563190000012344567");
         bankAccountsPage.currency.click();
         wait.until(ExpectedConditions.elementToBeClickable(bankAccountsPage.OP)).click();
         bankAccountsPage.integrationcod.sendKeys("1234");
         Tools.waitPopUp();
         bankAccountsPage.saveButton.click();
         Tools.waitUntilLoading();
-
     }
 
     @Then("the Bank Account  should appear in the list")
